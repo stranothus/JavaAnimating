@@ -16,7 +16,5 @@ public class DisplayGraphics extends Canvas {
         g.fillArc((int)(30 * widthRatio), (int)(130 * heightRatio), (int)(40 * widthRatio), (int)(50 * heightRatio), 180, 40);
 
         frameCount++;
-
-        System.out.println(frameCount);
     }
 }
