@@ -1,5 +1,6 @@
 import javax.swing.JFrame;
 
+// create and return a new JFrame
 public class JFrameConstructor {
     public JFrame init() {
         JFrame f = new JFrame();
