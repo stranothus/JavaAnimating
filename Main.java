@@ -48,6 +48,6 @@ public class Main {
 
         f.add(m); // initial drawing
         handleResize(); // set up the resize handler
-        This.startDrawFunction(100); // start the loop
+        This.startDrawFunction(1000 / 60); // start the loop
     }
 }
