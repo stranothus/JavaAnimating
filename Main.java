@@ -11,8 +11,6 @@ public class Main {
     static JFrame f = new JFrameConstructor().init();
     static DisplayGraphics m = new DisplayGraphics();
     // default size is 400-400, these are the difference from that
-    static double widthRatio = 1;
-    static double heightRatio = 1;
 
     // handle resize by recalculating width and height ratios and redrawing the image
     public static void handleResize() {
@@ -20,8 +18,8 @@ public class Main {
             public void componentResized(ComponentEvent evt) {
                 Component c = (Component)evt.getSource();
 
-                widthRatio = (double)c.getWidth() / 400;
-                heightRatio = (double)c.getHeight() / 400;
+                JFrameSize.widthRatio = (double)c.getWidth() / 400;
+                JFrameSize.heightRatio = (double)c.getHeight() / 400;
 
                 f.revalidate();
                 f.repaint();
