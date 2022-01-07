@@ -14,8 +14,12 @@ public class DisplayGraphics extends Canvas {
         int x = (int)(200 * widthRatio) - metrics.stringWidth(toDraw) / 2;
         g.setFont(Impact); 
         g.drawString(toDraw, x, (int)(200 * heightRatio));
-
-        setBackground(new Color(255, 255, 255));
+        
+        if(MyMouseEvents.mouseIn) {
+            setBackground(new Color(255, 0, 0));
+        } else {
+            setBackground(new Color(255, 255, 255));
+        }
         setForeground(new Color(0, 0, 0));
 
         g.fillOval((int)(200 * widthRatio - 12.5), (int)(200 * heightRatio + 12.5 + Math.sin(frameCount / 5) * 5), 25, 25);

@@ -45,9 +45,11 @@ public class Main {
     // start the program
     public static void main(String[] args) {
         Main This = new Main(); // new instance of this
+        MyMouseEvents mouseEvents = new MyMouseEvents(); // new instance of mouse events
 
         f.add(m); // initial drawing
         handleResize(); // set up the resize handler
         This.startDrawFunction(1000 / 60); // start the loop
+        f.addMouseListener(mouseEvents);
     }
 }
