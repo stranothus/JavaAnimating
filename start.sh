@@ -1,0 +1,1 @@
+javac -d classes Main.java && java -cp C:classes Main
