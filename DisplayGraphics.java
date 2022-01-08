@@ -33,6 +33,14 @@ public class DisplayGraphics extends Canvas {
         g.fillOval((int)(200 * widthRatio + 37.5), (int)(200 * heightRatio + 12.5 + Math.sin(frameCount / 5 + 0.67) * 5), 25, 25);
 
         player.update();
+
+        for(int i = 0; i < blocks.length; i++) {
+            if(blocks[i] == null) continue;
+
+            blocks[i].display(g);
+            blocks[i].applyCollisions(player);
+        }
+
         player.display(g);
 
         update();
