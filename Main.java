@@ -46,10 +46,13 @@ public class Main {
     public static void main(String[] args) {
         Main This = new Main(); // new instance of this
         MyMouseEvents mouseEvents = new MyMouseEvents(); // new instance of mouse events
+        MyKeyEvents keyEvents = new MyKeyEvents(); // new instance of mouse events
 
+        f.setFocusable(true);
         f.add(m); // initial drawing
         handleResize(); // set up the resize handler
         This.startDrawFunction(1000 / 60); // start the loop
         f.addMouseListener(mouseEvents);
+        f.addKeyListener(keyEvents);
     }
 }
