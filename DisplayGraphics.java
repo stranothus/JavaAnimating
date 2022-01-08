@@ -4,6 +4,30 @@ import java.awt.*;
 public class DisplayGraphics extends Canvas {
     long frameCount = 0;
     Player player;
+    String[] level = {
+        "                    ",
+        "                    ",
+        "                    ",
+        "                    ",
+        "                    ",
+        "                    ",
+        "                    ",
+        "                    ",
+        "                    ",
+        "                    ",
+        "                    ",
+        "                    ",
+        "                    ",
+        "                    ",
+        "                    ",
+        "                    ",
+        " #                # ",
+        " #                # ",
+        " ################## ",
+        "                    "
+    };
+    LevelConstructor levelConstructor = new LevelConstructor(level);
+    Block[] blocks = levelConstructor.generate();
 
     public DisplayGraphics() {
         player = new Player(190, 275, 20, 20);
