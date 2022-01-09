@@ -45,11 +45,7 @@ public class DisplayGraphics extends Canvas {
         g.setFont(Impact); 
         g.drawString(toDraw, textX, (int)(200 * heightRatio));
         
-        if(MyMouseEvents.mouseIn) {
-            setBackground(new Color(255, 0, 0));
-        } else {
-            setBackground(new Color(255, 255, 255));
-        }
+        setBackground(new Color(255, 255, 255));
         setForeground(new Color(0, 0, 0));
 
         g.fillOval((int)(200 * widthRatio - 12.5), (int)(200 * heightRatio + 12.5 + Math.sin(frameCount / 5) * 5), 25, 25);
