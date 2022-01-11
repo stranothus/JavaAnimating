@@ -1,12 +1,13 @@
 public class LevelConstructor {
     String[] map;
     Block[] generated;
+    Player player;
 
     public LevelConstructor(String[] map) {
         this.map = map;
     }
 
-    public Block[] generate() {
+    public Boolean generate() {
         int length = 0;
         for(int y = 0; y < map.length; y++) {
             for(int x = 0; x < map[y].length(); x++) {
@@ -19,8 +20,7 @@ public class LevelConstructor {
                 }
             }
         }
-        Block[] model = new Block[length];
-        generated = model;
+        generated = new Block[length];
 
         int index = 0;
         for(int y = 0; y < map.length; y++) {
@@ -32,9 +32,13 @@ public class LevelConstructor {
                         generated[index] = new Block(x * 20, y * 20, 20, 20);
                         index++;
                     break;
+                    case 'x':
+                        player = new Player(x * 20, y * 20, 20, 20);
+                    break;
                 }
             }
         }
-        return generated;
+
+        return player != null;
     }
 }

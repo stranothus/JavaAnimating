@@ -3,7 +3,6 @@ import java.awt.*;
 // called on a JFrame to display graphics
 public class DisplayGraphics extends Canvas {
     long frameCount = 0;
-    Player player;
     String[] level = {
         "                    ",
         "                    ",
@@ -20,17 +19,21 @@ public class DisplayGraphics extends Canvas {
         "                    ",
         "                    ",
         "                    ",
-        "                    ",
+        " x                  ",
         " #                # ",
         " #                # ",
         " ################## ",
         "                    "
     };
     LevelConstructor levelConstructor = new LevelConstructor(level);
-    Block[] blocks = levelConstructor.generate();
+    Boolean playerExists = levelConstructor.generate();
+    Player player = levelConstructor.player;
+    Block[] blocks = levelConstructor.generated;
 
     public DisplayGraphics() {
-        player = new Player(190, 275, 20, 20);
+        if(playerExists == false) {
+            player = new Player(190, 190, 20, 20);
+        }
     }
 
     public void paint(Graphics g) {
