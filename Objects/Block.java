@@ -1,3 +1,5 @@
+package Objects;
+
 public class Block extends Object {
     public Block(int x, int y, int w, int h) {
         super(x, y, w, h);

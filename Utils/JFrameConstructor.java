@@ -1,3 +1,4 @@
+package Utils;
 import javax.swing.JFrame;
 
 // create and return a new JFrame

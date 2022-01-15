@@ -1,6 +1,10 @@
+package Objects;
 import java.awt.*;
 
+import Utils.JFrameSize;
+
 public class Object {
+    static JFrameSize masteJFrameSize = new JFrameSize();
     int x = 0;
     int y = 0;
     int w = 0;
@@ -15,8 +19,8 @@ public class Object {
     }
 
     public void display(Graphics g) {
-        double widthRatio = JFrameSize.widthRatio;
-        double heightRatio = JFrameSize.heightRatio;
+        double widthRatio = masteJFrameSize.getWidth();
+        double heightRatio = masteJFrameSize.getHeight();
 
         g.setColor(color);
         g.fillRect((int)(x * widthRatio - 10), (int)(y * heightRatio), w, h);

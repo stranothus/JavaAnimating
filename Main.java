@@ -1,6 +1,12 @@
 // get some imports
 import java.awt.*;
 import javax.swing.JFrame;
+
+import MyEvents.MyKeyEvents;
+import MyEvents.MyMouseEvents;
+import Utils.JFrameConstructor;
+import Utils.JFrameSize;
+
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 import java.util.Timer;
@@ -10,6 +16,7 @@ public class Main {
     // new instances of JFrame and DisplayGraphics
     static JFrame f = new JFrameConstructor().init();
     static DisplayGraphics m = new DisplayGraphics();
+    static JFrameSize masteJFrameSize = new JFrameSize();
     // default size is 400-400, these are the difference from that
 
     // handle resize by recalculating width and height ratios and redrawing the image
@@ -18,8 +25,8 @@ public class Main {
             public void componentResized(ComponentEvent evt) {
                 Component c = (Component)evt.getSource();
 
-                JFrameSize.widthRatio = (double)c.getWidth() / 400;
-                JFrameSize.heightRatio = (double)c.getHeight() / 400;
+                masteJFrameSize.setWidth((double)c.getWidth() / 400);
+                masteJFrameSize.setHeight((double)c.getHeight() / 400);
 
                 f.revalidate();
                 f.repaint();

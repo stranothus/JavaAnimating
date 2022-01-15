@@ -1,6 +1,7 @@
+package MyEvents;
+
 import java.awt.event.*;
 import javax.swing.JComponent;
-// import java.awt.*;
 
 public class MyKeyEvents extends JComponent implements KeyListener {
     static Boolean[] keys = new Boolean[255];
@@ -19,5 +20,9 @@ public class MyKeyEvents extends JComponent implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         keys[e.getKeyCode()] = false;
+    }
+
+    public Boolean[] getKeys() {
+        return keys;
     }
 }

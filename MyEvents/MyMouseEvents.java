@@ -1,3 +1,4 @@
+package MyEvents;
 import java.awt.event.*;
 import javax.swing.JComponent;
 import java.awt.*;

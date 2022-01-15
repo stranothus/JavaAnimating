@@ -1,7 +1,12 @@
 import java.awt.*;
 
+import Objects.Block;
+import Objects.Player;
+import Utils.JFrameSize;
+
 // called on a JFrame to display graphics
 public class DisplayGraphics extends Canvas {
+    static JFrameSize masteJFrameSize = new JFrameSize();
     long frameCount = 0;
     String[] level = {
         "                    ",
@@ -37,8 +42,8 @@ public class DisplayGraphics extends Canvas {
     }
 
     public void paint(Graphics g) {
-        double widthRatio = JFrameSize.widthRatio;
-        double heightRatio = JFrameSize.heightRatio;
+        double widthRatio = masteJFrameSize.getWidth();
+        double heightRatio = masteJFrameSize.getHeight();
 
         // some basic graphics placed using the width and height ratios so resizing doesn't ruin them
         Font Impact = new Font("Impact", Font.PLAIN, 50);

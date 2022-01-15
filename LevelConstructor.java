@@ -1,3 +1,6 @@
+import Objects.Block;
+import Objects.Player;
+
 public class LevelConstructor {
     String[] map;
     Block[] generated;
