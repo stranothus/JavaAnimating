@@ -1,12 +1,11 @@
 import java.awt.*;
 
-import Objects.Block;
-import Objects.Player;
+import Objects.*;
 import Utils.JFrameSize;
 
 // called on a JFrame to display graphics
 public class DisplayGraphics extends Canvas {
-    static JFrameSize masteJFrameSize = new JFrameSize();
+    static JFrameSize masterJFrameSize = new JFrameSize();
     long frameCount = 0;
     String[] level = {
         "                    ",
@@ -26,14 +25,14 @@ public class DisplayGraphics extends Canvas {
         "                    ",
         " x                  ",
         " #                # ",
-        " #                # ",
+        " #              #~# ",
         " ################## ",
         "                    "
     };
     LevelConstructor levelConstructor = new LevelConstructor(level);
     Boolean playerExists = levelConstructor.generate();
     Player player = levelConstructor.player;
-    Block[] blocks = levelConstructor.blocks;
+    GameObject[] objects = levelConstructor.objects;
 
     public DisplayGraphics() {
         if(playerExists == false) {
@@ -42,8 +41,8 @@ public class DisplayGraphics extends Canvas {
     }
 
     public void paint(Graphics g) {
-        double widthRatio = masteJFrameSize.getWidth();
-        double heightRatio = masteJFrameSize.getHeight();
+        double widthRatio = masterJFrameSize.getWidth();
+        double heightRatio = masterJFrameSize.getHeight();
 
         // some basic graphics placed using the width and height ratios so resizing doesn't ruin them
         Font Impact = new Font("Impact", Font.PLAIN, 50);
@@ -62,11 +61,11 @@ public class DisplayGraphics extends Canvas {
 
         player.update();
 
-        for(int i = 0; i < blocks.length; i++) {
-            if(blocks[i] == null) continue;
+        for(int i = 0; i < objects.length; i++) {
+            if(objects[i] == null) continue;
 
-            blocks[i].display(g);
-            blocks[i].applyCollisions(player);
+            objects[i].display(g);
+            objects[i].applyCollisions(player);
         }
 
         player.display(g);

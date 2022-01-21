@@ -1,6 +1,6 @@
 package Objects;
 
-public class Block extends Object {
+public class Block extends GameObject {
     public Block(int x, int y, int w, int h) {
         super(x, y, w, h);
     }
