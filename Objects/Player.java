@@ -5,11 +5,16 @@ public class Player extends Object {
     int gravity = 0;
     int speed = 0;
     int jumpHeight = 15;
+    int originalX;
+    int originalY;
     Boolean canJump = false;
     MyKeyEvents keyMaster = new MyKeyEvents();
 
     public Player(int x, int y, int w, int h) {
         super(x, y, w, h);
+
+        originalX = x;
+        originalY = y;
     }
 
     public void update() {
@@ -32,5 +37,13 @@ public class Player extends Object {
 
         y += gravity;
         x += speed;
+    }
+
+    public void die() {
+        x = originalX;
+        y = originalY;
+        gravity = 0;
+        speed = 0;
+        canJump = false;
     }
 }

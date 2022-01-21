@@ -33,7 +33,7 @@ public class DisplayGraphics extends Canvas {
     LevelConstructor levelConstructor = new LevelConstructor(level);
     Boolean playerExists = levelConstructor.generate();
     Player player = levelConstructor.player;
-    Block[] blocks = levelConstructor.generated;
+    Block[] blocks = levelConstructor.blocks;
 
     public DisplayGraphics() {
         if(playerExists == false) {

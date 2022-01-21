@@ -3,7 +3,7 @@ import Objects.Player;
 
 public class LevelConstructor {
     String[] map;
-    Block[] generated;
+    Block[] blocks;
     Player player;
 
     public LevelConstructor(String[] map) {
@@ -23,7 +23,7 @@ public class LevelConstructor {
                 }
             }
         }
-        generated = new Block[length];
+        blocks = new Block[length];
 
         int index = 0;
         for(int y = 0; y < map.length; y++) {
@@ -32,7 +32,7 @@ public class LevelConstructor {
 
                 switch(c) {
                     case '#':
-                        generated[index] = new Block(x * 20, y * 20, 20, 20);
+                        blocks[index] = new Block(x * 20, y * 20, 20, 20);
                         index++;
                     break;
                     case 'x':
