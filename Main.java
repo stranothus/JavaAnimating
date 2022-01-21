@@ -16,7 +16,7 @@ public class Main {
     // new instances of JFrame and DisplayGraphics
     static JFrame f = new JFrameConstructor().init();
     static DisplayGraphics m = new DisplayGraphics();
-    static JFrameSize masteJFrameSize = new JFrameSize();
+    static JFrameSize masterJFrameSize = new JFrameSize();
     // default size is 400-400, these are the difference from that
 
     // handle resize by recalculating width and height ratios and redrawing the image
@@ -25,8 +25,8 @@ public class Main {
             public void componentResized(ComponentEvent evt) {
                 Component c = (Component)evt.getSource();
 
-                masteJFrameSize.setWidth((double)c.getWidth() / 400);
-                masteJFrameSize.setHeight((double)c.getHeight() / 400);
+                masterJFrameSize.setWidth((double)c.getWidth() / 400);
+                masterJFrameSize.setHeight((double)c.getHeight() / 400);
 
                 f.revalidate();
                 f.repaint();

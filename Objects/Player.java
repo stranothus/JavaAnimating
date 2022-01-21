@@ -1,7 +1,10 @@
 package Objects;
 import MyEvents.MyKeyEvents;
+import java.awt.*;
+import Utils.JFrameSize;
 
-public class Player extends Object {
+public class Player extends GameObject {
+    static JFrameSize masterJFrameSize = new JFrameSize();
     int gravity = 0;
     int speed = 0;
     int jumpHeight = 15;
@@ -9,12 +12,21 @@ public class Player extends Object {
     int originalY;
     Boolean canJump = false;
     MyKeyEvents keyMaster = new MyKeyEvents();
+    Color color = new Color(0, 0, 255);
 
     public Player(int x, int y, int w, int h) {
         super(x, y, w, h);
 
         originalX = x;
         originalY = y;
+    }
+
+    public void display(Graphics g) {
+        double widthRatio = masterJFrameSize.getWidth();
+        double heightRatio = masterJFrameSize.getHeight();
+
+        g.setColor(color);
+        g.fillRect((int)(x * widthRatio - 10), (int)(y * heightRatio), w, h);
     }
 
     public void update() {
