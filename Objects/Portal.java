@@ -1,15 +1,14 @@
 package Objects;
+
 import java.awt.*;
-import Utils.JFrameSize;
 
-public class Lava extends GameObject {
-    static JFrameSize masterJFrameSize = new JFrameSize();
-    Color color = new Color(255, 0, 0);
+public class Portal extends GameObject {
+    Color color = new Color(255, 255, 0);
 
-    public Lava(int x, int y, int w, int h) {
+    public Portal(int x, int y, int w, int h) {
         super(x, y, w, h);
     }
-
+    
     public void display(Graphics g) {
         double widthRatio = masterJFrameSize.getWidth();
         double heightRatio = masterJFrameSize.getHeight();
@@ -24,7 +23,7 @@ public class Lava extends GameObject {
 
     public void applyCollisions(Player p) {
         if(colliding(p)) {
-            p.die();
+            // next level
         }
     }
 }

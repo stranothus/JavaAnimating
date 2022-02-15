@@ -34,6 +34,10 @@ public class LevelConstructor {
                         objects[index] = new Lava(x * 20, y * 20, 20, 20);
                         index++;
                     break;
+                    case 'O':
+                        objects[index] = new Portal(x * 20, y * 20, 20, 20);
+                        index++;
+                    break;
                     case 'x':
                         player = new Player(x * 20, y * 20, 20, 20);
                     break;
