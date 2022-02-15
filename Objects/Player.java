@@ -10,6 +10,8 @@ public class Player extends GameObject {
     int jumpHeight = 15;
     int originalX;
     int originalY;
+    int pastX = 0;
+    int pastY = 0;
     Boolean canJump = false;
     MyKeyEvents keyMaster = new MyKeyEvents();
     Color color = new Color(0, 0, 255);
@@ -47,6 +49,8 @@ public class Player extends GameObject {
             canJump = false;
         }
 
+        pastY = y;
+        pastX = x;
         y += gravity;
         x += speed;
     }

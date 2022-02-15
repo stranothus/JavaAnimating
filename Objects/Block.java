@@ -5,15 +5,9 @@ public class Block extends GameObject {
         super(x, y, w, h);
     }
 
-    private Boolean colliding(Player p) {
-        return p.x < x + w && p.x + p.w > x && p.y < y + h && p.y +p.h > y;
-    }
-
     public void applyCollisions(Player p) {
-        if(colliding(p)) {
-            p.x -= p.speed;
-
-            if(colliding(p)) {
+        if(p.x < x + w && p.x + p.w > x && p.y < y + h && p.y + p.h > y) {
+            if(p.pastX < x + w && p.pastX + p.w > x && p.y < y + h && p.y + p.h > y) {
                 if(p.gravity > 0) {
                     p.y = y - p.h;
                     p.gravity = 0;
@@ -23,21 +17,16 @@ public class Block extends GameObject {
                     p.gravity = 1;
                 }
             }
-            
-            p.x += p.speed;
-            p.y -= p.gravity;
 
-            if(colliding(p)) {
+            if(p.x < x + w && p.x + p.w > x && p.pastY < y + h && p.pastY + p.h > y) {
                 if(p.speed > 0) {
                     p.x = x - p.w;
-                } else {
+                } else if(p.speed < 0) {
                     p.x = x + w;
                 }
                 
                 p.speed = 0;
             }
-
-            p.y += p.gravity;
         }
     }
 }
