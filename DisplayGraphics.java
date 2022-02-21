@@ -7,34 +7,38 @@ import Utils.JFrameSize;
 public class DisplayGraphics extends Canvas {
     static JFrameSize masterJFrameSize = new JFrameSize();
     long frameCount = 0;
-    String[] level = {
-        "                    ",
-        "                    ",
-        "                    ",
-        "                    ",
-        "                    ",
-        "                    ",
-        "                    ",
-        "                    ",
-        "                    ",
-        "                    ",
-        "                    ",
-        "              O     ",
-        "              ####  ",
-        "                    ",
-        " x                  ",
-        "                    ",
-        " #                # ",
-        " #              #~# ",
-        " ################## ",
-        "                    "
+    String[][] levels = {
+        {
+            "                    ",
+            "                    ",
+            "                    ",
+            "                    ",
+            "                    ",
+            "                    ",
+            "                    ",
+            "                    ",
+            "                    ",
+            "                    ",
+            "                    ",
+            "              O     ",
+            "              ####  ",
+            "                    ",
+            " x                  ",
+            "                    ",
+            " #                # ",
+            " #              #~# ",
+            " ################## ",
+            "                    "
+        }
     };
-    LevelConstructor levelConstructor = new LevelConstructor(level);
-    Boolean playerExists = levelConstructor.generate();
-    Player player = levelConstructor.player;
-    GameObject[] objects = levelConstructor.objects;
+    ManageLevels levelManager = new ManageLevels(levels);
+    Boolean playerExists = false;
+    Player player;
+    GameObject[] objects;
 
     public DisplayGraphics() {
+        eachLevel();
+        
         if(playerExists == false) {
             player = new Player(190, 190, 20, 20);
         }
@@ -71,6 +75,13 @@ public class DisplayGraphics extends Canvas {
         player.display(g);
 
         update();
+    }
+
+    public void eachLevel() {
+        LevelConstructor currentLevel = levelManager.currentLevel();
+        playerExists = currentLevel.generate();
+        player = currentLevel.player;
+        objects = currentLevel.objects;
     }
 
     public void update() {
